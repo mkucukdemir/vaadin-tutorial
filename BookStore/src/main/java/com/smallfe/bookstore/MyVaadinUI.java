@@ -1,5 +1,8 @@
 package com.smallfe.bookstore;
 
+import com.smallfe.bookstore.view.HomeView;
+import com.smallfe.bookstore.view.AboutView;
+import com.smallfe.bookstore.view.DefaultView;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
@@ -46,7 +49,8 @@ public class MyVaadinUI extends UI
         
         Navigator navigator = new Navigator(this, viewContainer);
         
-        navigator.addView("", new HomeView());
+        navigator.addView("", new DefaultView());
+        navigator.addView("home", new HomeView());
         navigator.addView("about", new AboutView());
     }
 
