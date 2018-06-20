@@ -16,7 +16,7 @@ import com.vaadin.ui.VerticalLayout;
  * The BookStore's "main" class
  */
 @SuppressWarnings("serial")
-@Theme("runo")
+@Theme("custom")
 public class MyVaadinUI extends UI
 {
 
@@ -38,8 +38,12 @@ public class MyVaadinUI extends UI
         });
         
         VerticalLayout menu = new VerticalLayout(title,home,about);
+        menu.setStyleName("v-menu");
+        menu.setSpacing(true);
+        menu.setMargin(true);
         
         VerticalLayout viewContainer = new VerticalLayout();
+        viewContainer.setMargin(true);
         
         HorizontalLayout mainLayout = new HorizontalLayout(menu,viewContainer);
         mainLayout.setSizeFull();

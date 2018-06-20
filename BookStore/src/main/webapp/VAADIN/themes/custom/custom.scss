@@ -1,0 +1,19 @@
+@import "../runo/runo.scss";
+
+@mixin custom {
+    @include runo;
+    
+    .v-menu {
+        text-align: center;
+    }
+    
+    .v-menu .v-button-wrap {
+        color: #022636;
+        background: #D3E0E6;
+    }
+    
+    .v-menu .v-button-wrap:hover {
+        color: #D3E0E6;
+        background: #022636;
+    }
+}
