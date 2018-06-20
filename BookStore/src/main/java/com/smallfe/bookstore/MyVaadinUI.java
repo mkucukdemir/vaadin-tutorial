@@ -1,32 +1,57 @@
 package com.smallfe.bookstore;
 
+import com.smallfe.bookstore.view.HomeView;
+import com.smallfe.bookstore.view.AboutView;
+import com.smallfe.bookstore.view.DefaultView;
+import com.vaadin.annotations.Theme;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /**
- * The Application's "main" class
+ * The BookStore's "main" class
  */
 @SuppressWarnings("serial")
+@Theme("runo")
 public class MyVaadinUI extends UI
 {
 
     @Override
     protected void init(VaadinRequest request) {
-        final VerticalLayout layout = new VerticalLayout();
-        layout.setMargin(true);
-        setContent(layout);
+        Label title = new Label();        
         
-        Button button = new Button("Click Me");
-        button.addClickListener(new Button.ClickListener() {
-            public void buttonClick(ClickEvent event) {
-                layout.addComponent(new Label("Thank you for clicking"));
+        Button home = new Button("Home", new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                getNavigator().navigateTo("home");
             }
         });
-        layout.addComponent(button);
+        Button about = new Button("About", new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                getNavigator().navigateTo("about");
+            }
+        });
+        
+        VerticalLayout menu = new VerticalLayout(title,home,about);
+        
+        VerticalLayout viewContainer = new VerticalLayout();
+        
+        HorizontalLayout mainLayout = new HorizontalLayout(menu,viewContainer);
+        mainLayout.setSizeFull();
+        mainLayout.setExpandRatio(menu, 1);
+        mainLayout.setExpandRatio(viewContainer, 9);
+        setContent(mainLayout);
+        
+        Navigator navigator = new Navigator(this, viewContainer);
+        
+        navigator.addView("", new DefaultView());
+        navigator.addView("home", new HomeView());
+        navigator.addView("about", new AboutView());
     }
 
 }
