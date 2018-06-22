@@ -19,8 +19,8 @@ public class HomeView extends VerticalLayout implements View {
     public static final String VIEW_NAME = "Home";
 
     public HomeView() {
-        Label text = new Label("Content of the Home view");
-        addComponent(text);
+        BookForm bookForm = new BookForm();
+        addComponent(bookForm);
     }
 
     @Override

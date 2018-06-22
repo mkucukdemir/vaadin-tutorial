@@ -12,6 +12,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<vaadin.version>7.0.0.rc2</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+                <hibernate.version>5.2.2.Final</hibernate.version>
+		<h2.version>1.4.192</h2.version>
+                <slf4j-log4j12.version>1.7.21</slf4j-log4j12.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -69,6 +72,49 @@
 			<version>2.4</version>
 			<scope>provided</scope>
 		</dependency>
+                <dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+                </dependency>
+                <dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j-log4j12.version}</version>
+                </dependency>
+                <dependency>
+                   <groupId>org.hibernate</groupId>
+                   <artifactId>hibernate-entitymanager</artifactId>
+                   <version>4.3.1.Final</version>
+                </dependency>
+                <dependency>
+                   <groupId>org.hibernate.javax.persistence</groupId>
+                   <artifactId>hibernate-jpa-2.1-api</artifactId>
+                   <version>1.0.0.Final</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                    <version>5.0.7.RELEASE</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-tx</artifactId>
+                    <version>5.0.7.RELEASE</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                    <version>5.0.7.RELEASE</version>
+                </dependency>
+
+
+
 	</dependencies>
 
 	<build>
