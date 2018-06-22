@@ -5,6 +5,7 @@ import com.smallfe.bookstore.view.AboutView;
 import com.smallfe.bookstore.view.DefaultView;
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
@@ -22,6 +23,7 @@ public class MyVaadinUI extends UI
 
     @Override
     protected void init(VaadinRequest request) {
+        Page.getCurrent().setTitle("Bookstore");
         Label title = new Label();        
         
         Button home = new Button("Home", new Button.ClickListener() {

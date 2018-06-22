@@ -32,7 +32,7 @@ public class Book implements Serializable {
     }
     
     @Id
-    @SequenceGenerator(name="BOOK_SEQ", sequenceName="SEQ_BOOK_ID")
+    @SequenceGenerator(name="BOOK_SEQ", sequenceName="SEQ_BOOK_ID",allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "BOOK_SEQ")
     @Column(name="ID")
     private Long id;
