@@ -5,9 +5,11 @@
  */
 package com.smallfe.bookstore.view;
 
+import com.smallfe.bookstore.component.BookTable;
+import com.smallfe.bookstore.service.DataService;
+import com.smallfe.bookstore.service.DataServiceImpl;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -16,11 +18,12 @@ import com.vaadin.ui.VerticalLayout;
  */
 public class HomeView extends VerticalLayout implements View {
     
+    DataService dataService = new DataServiceImpl();
     public static final String VIEW_NAME = "Home";
 
     public HomeView() {
-        BookForm bookForm = new BookForm();
-        addComponent(bookForm);
+        addComponent(new BookTable(dataService.getAllBooks()));
+        addComponent(new BookForm());
     }
 
     @Override

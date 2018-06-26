@@ -6,6 +6,7 @@
 package com.smallfe.bookstore.service;
 
 import com.smallfe.bookstore.db.entity.Book;
+import java.util.List;
 
 /**
  *
@@ -15,4 +16,6 @@ public interface DataService {
     public void testConnection();
 
     public void save(Book book);
+
+    public List<Book> getAllBooks();
 }

@@ -8,6 +8,7 @@ package com.smallfe.bookstore.service;
 import com.smallfe.bookstore.db.entity.Book;
 import com.smallfe.bookstore.db.impl.StoreDaoImpl;
 import com.smallfe.bookstore.db.ints.StoreDao;
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,6 +30,11 @@ public class DataServiceImpl implements DataService {
     @Override
     public void save(Book book) {
         storeDao.save(book);
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        return storeDao.getAllBooks();
     }
     
 }

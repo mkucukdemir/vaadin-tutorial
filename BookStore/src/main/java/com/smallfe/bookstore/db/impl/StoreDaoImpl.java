@@ -25,7 +25,12 @@ public class StoreDaoImpl implements StoreDao {
 
     @Override
     public List<Book> getAllBooks() {
-        throw new UnsupportedOperationException("Not implemented yet.");
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<Book> bookList = session.createQuery("from Book").list();
+        session.getTransaction().commit();
+        session.close();
+        return bookList;
     }
 
     @Override

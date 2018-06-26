@@ -22,6 +22,7 @@ public class BookTypeSelect extends NativeSelect {
         super.addItem("Self help");
         super.addItem("Health");
         super.addItem("Religion");
+        super.addItem("Fiction");
     }
     
 }
